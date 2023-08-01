@@ -27,7 +27,7 @@ public class Interface {
 
     public static ArrayList<JLabel> makeLabels(int labelEstimate) {
         ArrayList<JLabel> labels = new ArrayList<JLabel>(labelEstimate);
-        labels.add(new Title("Hello world", Color.WHITE));
+        labels.add(new Title("Mail Handler", Color.WHITE, JLabel.CENTER, JLabel.TOP));
 
         labels.trimToSize();
         return labels;
