@@ -1,11 +1,12 @@
 package graphical;
 
+// JDK packages
+import java.net.URL;
+
 // GUI packages
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
-// JDK packages
-import java.net.URL;
 
 
 public class ScreenManager {
@@ -21,6 +22,7 @@ public class ScreenManager {
             return null;
         }
     }
+
     public static double[] getScreenDim() {
         double[] dimensions = new double[2];
         Toolkit defaultToolkit = Toolkit.getDefaultToolkit();

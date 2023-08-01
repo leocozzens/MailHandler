@@ -1,33 +1,44 @@
 package graphical;
 
+// JDK packages
+import java.util.ArrayList;
+
 // GUI packages
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
+// Local packages
+import graphical.components.*;
 
 public class Interface {
-    private static final Color bgColor = new Color(31, 31, 31);
 
-    private String title;
-    private int xSize;
-    private int ySize;
+    private JFrame window;
     private ImageIcon icon;
 
     @SuppressWarnings("rawtypes")
-    public Interface(String title, int xSize, int ySize, String path, Class main) {
-        this.title = title;
-        this.xSize = xSize;
-        this.ySize = ySize;
+    public Interface(String winTitle, int defaultWidth, int defaultHeight, String path, Class main) {
         this.icon = ScreenManager.createImageIcon(path, main);
+        this.window = new JFrame(winTitle);
+        this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.window.setSize(defaultWidth, defaultHeight);
     }
 
-    public void run() {
-        JFrame window = new JFrame(this.title);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(this.xSize, this.ySize);
-        window.setIconImage(this.icon.getImage());
-        window.getContentPane().setBackground(bgColor);
-        window.setVisible(true);
+    public static ArrayList<JLabel> makeLabels(int labelEstimate) {
+        ArrayList<JLabel> labels = new ArrayList<JLabel>(labelEstimate);
+        labels.add(new Title("Hello world", Color.WHITE));
+
+        labels.trimToSize();
+        return labels;
+    }
+
+    public void run(ArrayList<JLabel> labels, Color bgColor) {
+        this.window.setIconImage(this.icon.getImage());
+        this.window.getContentPane().setBackground(bgColor);
+        for(int i = 0; i < labels.size(); i++) {
+            this.window.add(labels.get(i));
+        }
+        this.window.setVisible(true);
     }
 }
