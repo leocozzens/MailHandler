@@ -5,8 +5,9 @@ import java.net.URL;
 
 // GUI packages
 import java.awt.Dimension;
-import javax.swing.ImageIcon;
 import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
 
 
 public class ScreenManager {
