@@ -14,9 +14,9 @@ public class ScreenManager {
     // Method to load the ImageIcon from within the JAR
     @SuppressWarnings("rawtypes")
     public static ImageIcon createImageIcon(String path, Class main) {
-        URL url = main.getResource("/" + path);
-        if (url != null) {
-            return new ImageIcon(url);
+        URL imageURL = main.getResource("/" + path);
+        if (imageURL != null) {
+            return new ImageIcon(imageURL);
         }
         else {
             System.err.println("Couldn't find the image: " + path);
